@@ -7,12 +7,12 @@
 Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
-Version:	0.6.0
+Version:	0.6.2
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	eb2ee324875bd14319574db320262e00
+# Source0-md5:	469f7663bf635cd28745f33d3ba54797
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
