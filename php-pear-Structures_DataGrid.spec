@@ -8,7 +8,7 @@ Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.5.3
-Release:	2
+Release:	3
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -19,6 +19,8 @@ Requires:	php-pear
 Requires:	php-pear-Pager
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	'pear(Smarty/Smarty.class.php)'
 
 %description
 This package offers a toolkit to render out a datagrid in HTML format
