@@ -4,8 +4,8 @@
 %define		_status		alpha
 %define		_pearname	%{_class}_%{_subclass}
 
-Summary:	%{_pearname} - create grid like structure based on a recird set of data
-#Summary(pl):	%{_pearname} - tworzenie s
+Summary:	%{_pearname} - create grid like structure based on a record set of data
+Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.4.1
 Release:	1
@@ -20,18 +20,22 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package offers a toolkit to render out a datagrid in HTML format as
-well as many other formats such as an XML Document, an Excel Spreadsheet,
-a Smarty Template and more.  It also offers paging and sorting
-functionallity to limit the data that is presented.  This concept is based
-on the .NET Framework DataGrid
+This package offers a toolkit to render out a datagrid in HTML format
+as well as many other formats such as an XML Document, an Excel
+Spreadsheet, a Smarty Template and more. It also offers paging and
+sorting functionality to limit the data that is presented. This
+concept is based on the .NET Framework DataGrid.
 
 This class has in PEAR status: %{_status}.
 
-#%description -l pl
-#...
-#
-#Ta klasa ma w PEAR status: %{_status}.
+%description -l pl
+Ten pakiet oferuje zestaw narzêdzi do renderowania tabel z danymi w
+formacie HTML, a tak¿e innych formatach, takich jak np. dokumenty XML,
+arkusze Excela czy szablony Smarty. Oferuje tak¿e funkcjonalno¶æ
+stronicowania i sortowania, aby ograniczyæ ilo¶æ prezentowanych
+danych. Ta idea jest oparta na DataGrid ze ¶rodowiska .NET.
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
@@ -52,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_pearname}-%{version}/%{_subclass}/Docs
 %{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/
+%{php_pear_dir}/%{_class}/%{_subclass}
