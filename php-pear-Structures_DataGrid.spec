@@ -26,7 +26,7 @@ Spreadsheet, a Smarty Template and more. It also offers paging and
 sorting functionality to limit the data that is presented. This
 concept is based on the .NET Framework DataGrid.
 
-This class has in PEAR status: %{_status}.
+In PEAR status of this package is: %{_status}.
 
 %description -l pl
 Ten pakiet oferuje zestaw narzêdzi do renderowania tabel z danymi w
