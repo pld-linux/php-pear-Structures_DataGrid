@@ -13,7 +13,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	b9b9a00f103fbc32571435a84060f473
-URL:		http://pear.php.net/package/Class_Subclass/
+URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
 BuildArch:	noarch
@@ -44,7 +44,6 @@ install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
 install %{_pearname}-%{version}/%{_subclass}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 install %{_pearname}-%{version}/%{_subclass}/Record/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Record
 install %{_pearname}-%{version}/%{_subclass}/Renderer/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
