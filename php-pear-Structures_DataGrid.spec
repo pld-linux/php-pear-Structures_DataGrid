@@ -1,22 +1,21 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		Structures
 %define		_subclass	DataGrid
-%define		_status		alpha
+%define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
-Version:	0.5.3
-Release:	3
+Version:	0.6.0
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	f45ff717b42e8b4e5ceba3b0debbd03b
+# Source0-md5:	eb2ee324875bd14319574db320262e00
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
-Requires:	php-pear-Pager
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
