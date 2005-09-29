@@ -8,18 +8,19 @@ Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.6.2
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	469f7663bf635cd28745f33d3ba54797
 URL:		http://pear.php.net/package/Structures_DataGrid/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'pear(Smarty/Smarty.class.php)'
+# exclude optional dependencies
+%define		_noautoreq	'pear(HTML/Table.*)' 'pear(Pager.*)' 'pear(Spreadsheet/Excel/Writer.*)' 'pear(XML/Util.*)' 'pear(XML/RSS.*)' 'pear(XML/Serializer.*)' 'pear(Console/Table.*)' 'pear(Smarty/Smarty.class.php)'
 
 %description
 This package offers a toolkit to render out a datagrid in HTML format
@@ -40,22 +41,29 @@ danych. Ta idea jest oparta na DataGrid ze ¶rodowiska .NET.
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c
+%pear_package_setup
+
+install -d docs/%{_pearname}
+mv ./%{php_pear_dir}/%{_class}/%{_subclass}/Docs/* docs/%{_pearname}
+rmdir ./%{php_pear_dir}/%{_class}/%{_subclass}/Docs
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/{Record,Renderer}
-
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
-install %{_pearname}-%{version}/%{_subclass}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
-install %{_pearname}-%{version}/%{_subclass}/Record/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Record
-install %{_pearname}-%{version}/%{_subclass}/Renderer/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
+	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
+fi
+
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/%{_subclass}/Docs
+%doc install.log
+%doc docs/%{_pearname}/*
+%{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}
