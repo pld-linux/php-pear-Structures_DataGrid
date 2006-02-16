@@ -17,7 +17,7 @@ Patch0:		%{name}-path.patch
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear >= 4:1.0-9.5
-Requires:	php-pear-PEAR >= 1:1.2
+Requires:	php-pear-PEAR-core >= 1:1.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
