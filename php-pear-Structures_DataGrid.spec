@@ -15,6 +15,7 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	469f7663bf635cd28745f33d3ba54797
 Patch0:		%{name}-path.patch
 URL:		http://pear.php.net/package/Structures_DataGrid/
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear >= 4:1.0-9.5
 Requires:	php-pear-PEAR-core >= 1:1.2
