@@ -3,12 +3,11 @@
 %define		_subclass	DataGrid
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
-
 Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -30,7 +29,7 @@ sorting functionality to limit the data that is presented. This
 concept is based on the .NET Framework DataGrid.
 
 Note: With the release of Structures_DataGrid-0.7.0, all renderers and
-      datasource classes are now available as a separate packages only.
+datasource classes are now available as a separate packages only.
 
 In PEAR status of this package is: %{_status}.
 
@@ -42,8 +41,8 @@ stronicowania i sortowania, aby ograniczyæ ilo¶æ prezentowanych
 danych. Ta idea jest oparta na DataGrid ze ¶rodowiska .NET.
 
 Uwaga: Z wydaniem wersji Structures_DataGrid-0.7.0, wszystkie klasy
-       s³u¿±ce do renderowania czy te¿ do obs³ugi ¼róde³ danych dostêpne
-       s± tylko jako oddzielne pakiety.
+s³u¿±ce do renderowania czy te¿ do obs³ugi ¼róde³ danych dostêpne s±
+tylko jako oddzielne pakiety.
 
 Ta klasa ma w PEAR status: %{_status}.
 
@@ -52,7 +51,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
 %pear_package_install
 
 %clean
@@ -60,7 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc install.log 
+%doc install.log
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}
+%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
