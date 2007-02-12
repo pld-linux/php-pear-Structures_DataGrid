@@ -4,7 +4,7 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 Summary:	%{_pearname} - create grid like structure based on a record set of data
-Summary(pl):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
+Summary(pl.UTF-8):   %{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordÃ³w danych
 Name:		php-pear-%{_pearname}
 Version:	0.8.0
 Release:	1
@@ -33,15 +33,15 @@ datasource classes are now available as a separate packages only.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Ten pakiet oferuje zestaw narzêdzi do renderowania tabel z danymi w
-formacie HTML, a tak¿e innych formatach, takich jak np. dokumenty XML,
-arkusze Excela czy szablony Smarty. Oferuje tak¿e funkcjonalno¶æ
-stronicowania i sortowania, aby ograniczyæ ilo¶æ prezentowanych
-danych. Ta idea jest oparta na DataGrid ze ¶rodowiska .NET.
+%description -l pl.UTF-8
+Ten pakiet oferuje zestaw narzÄ™dzi do renderowania tabel z danymi w
+formacie HTML, a takÅ¼e innych formatach, takich jak np. dokumenty XML,
+arkusze Excela czy szablony Smarty. Oferuje takÅ¼e funkcjonalnoÅ›Ä‡
+stronicowania i sortowania, aby ograniczyÄ‡ iloÅ›Ä‡ prezentowanych
+danych. Ta idea jest oparta na DataGrid ze Å›rodowiska .NET.
 
 Uwaga: Z wydaniem wersji Structures_DataGrid-0.7.0, wszystkie klasy
-s³u¿±ce do renderowania czy te¿ do obs³ugi ¼róde³ danych dostêpne s±
+sÅ‚uÅ¼Ä…ce do renderowania czy teÅ¼ do obsÅ‚ugi ÅºrÃ³deÅ‚ danych dostÄ™pne sÄ…
 tylko jako oddzielne pakiety.
 
 Ta klasa ma w PEAR status: %{_status}.
