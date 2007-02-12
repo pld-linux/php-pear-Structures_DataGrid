@@ -4,7 +4,7 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 Summary:	%{_pearname} - create grid like structure based on a record set of data
-Summary(pl.UTF-8):   %{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
+Summary(pl.UTF-8):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.8.0
 Release:	1
