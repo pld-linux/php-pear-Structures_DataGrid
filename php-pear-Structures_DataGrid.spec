@@ -6,18 +6,18 @@
 Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl.UTF-8):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
-Version:	0.8.0
+Version:	0.8.3
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	96e424a8e554388c340289c2b77efcaf
+# Source0-md5:	1d57841abbdeea32eade80f5ee07011b
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-pear >= 4:1.0-9.5
-Requires:	php-pear-PEAR-core >= 1:1.2
+Requires:	php-pear-PEAR-core >= 1:1.4.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,7 +51,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/{Renderer,DataSource}
 %pear_package_install
 
 %clean
@@ -62,5 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}
-%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
+%dir %{php_pear_dir}/%{_class}/%{_subclass}
+%{php_pear_dir}/%{_class}/%{_subclass}/*.php
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/Renderer
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/DataSource
