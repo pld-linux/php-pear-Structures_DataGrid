@@ -7,7 +7,7 @@ Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl.UTF-8):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
 Version:	0.9.0
-Release:	2
+Release:	3
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -18,8 +18,15 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-pear >= 4:1.0-9.5
 Requires:	php-pear-PEAR-core >= 1:1.4.9
+Suggests:	php-pear-File
+Suggests:	php-pear-Net_URL_Mapper
+Suggests:	php-pear-PHPUnit
+Suggests:	php-sqlite
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# exclude optional dependencies
+%define		_noautoreq	pear(File.*) pear(Net/URL/Mapper.*) pear(PHPUnit.*)
 
 %description
 This package offers a toolkit to render out a datagrid in HTML format
@@ -50,9 +57,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
