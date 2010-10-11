@@ -1,17 +1,17 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		Structures
-%define		_subclass	DataGrid
 %define		_status		beta
-%define		_pearname	%{_class}_%{_subclass}
+%define		_pearname	Structures_DataGrid
+%define		subver	dev1
+%define		rel		1
 Summary:	%{_pearname} - create grid like structure based on a record set of data
 Summary(pl.UTF-8):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{_pearname}
-Version:	0.9.0
-Release:	3
+Version:	0.9.1
+Release:	0.%{subver}.%{rel}
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	9aa37e190d2c0856bfc4bb556409285c
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
+# Source0-md5:	e7dcef1dc86f1b1f2c092df995e74b71
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -22,6 +22,7 @@ Suggests:	php-pear-File
 Suggests:	php-pear-Net_URL_Mapper
 Suggests:	php-pear-PHPUnit
 Suggests:	php-sqlite
+Obsoletes:	php-pear-Structures_DataGrid-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,27 +54,16 @@ tylko jako oddzielne pakiety.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/{Renderer,DataSource}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/Structures/DataGrid/{Renderer,DataSource}
 %pear_package_install
+
+# tests should not be packaged
+rm -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,12 +72,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/*.php
-%dir %{php_pear_dir}/%{_class}/%{_subclass}
-%{php_pear_dir}/%{_class}/%{_subclass}/*.php
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Renderer
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/DataSource
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/Structures_DataGrid
+%{php_pear_dir}/Structures/DataGrid.php
+%dir %{php_pear_dir}/Structures/DataGrid
+%{php_pear_dir}/Structures/DataGrid/Column.php
+%{php_pear_dir}/Structures/DataGrid/DataSource.php
+%{php_pear_dir}/Structures/DataGrid/Renderer.php
+%dir %{php_pear_dir}/Structures/DataGrid/Renderer
+%dir %{php_pear_dir}/Structures/DataGrid/DataSource
