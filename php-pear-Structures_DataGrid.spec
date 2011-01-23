@@ -62,9 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}/Structures/DataGrid/{Renderer,DataSource}
 %pear_package_install
 
-# tests should not be packaged
-rm -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
