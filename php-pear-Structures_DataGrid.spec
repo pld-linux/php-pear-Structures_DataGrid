@@ -1,21 +1,19 @@
+%define		status		beta
+%define		pearname	Structures_DataGrid
 %include	/usr/lib/rpm/macros.php
-%define		_status		beta
-%define		_pearname	Structures_DataGrid
-%define		subver	dev1
-%define		rel		1
-Summary:	%{_pearname} - create grid like structure based on a record set of data
-Summary(pl.UTF-8):	%{_pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
-Name:		php-pear-%{_pearname}
-Version:	0.9.1
-Release:	0.%{subver}.%{rel}
+Summary:	%{pearname} - create grid like structure based on a record set of data
+Summary(pl.UTF-8):	%{pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
+Name:		php-pear-%{pearname}
+Version:	0.9.3
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}%{subver}.tgz
-# Source0-md5:	e7dcef1dc86f1b1f2c092df995e74b71
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
+# Source0-md5:	108ed5caedb4b3634e214af9cb7dd968
 URL:		http://pear.php.net/package/Structures_DataGrid/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php-pear >= 4:1.0-9.5
 Requires:	php-pear-PEAR-core >= 1:1.4.9
 Suggests:	php-pear-File
@@ -39,7 +37,7 @@ concept is based on the .NET Framework DataGrid.
 Note: With the release of Structures_DataGrid-0.7.0, all renderers and
 datasource classes are now available as a separate packages only.
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 Ten pakiet oferuje zestaw narzędzi do renderowania tabel z danymi w
@@ -52,7 +50,7 @@ Uwaga: Z wydaniem wersji Structures_DataGrid-0.7.0, wszystkie klasy
 służące do renderowania czy też do obsługi źródeł danych dostępne są
 tylko jako oddzielne pakiety.
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup
@@ -73,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{php_pear_dir}/Structures/DataGrid
 %{php_pear_dir}/Structures/DataGrid/Column.php
 %{php_pear_dir}/Structures/DataGrid/DataSource.php
+%{php_pear_dir}/Structures/DataGrid/Exception.php
 %{php_pear_dir}/Structures/DataGrid/Renderer.php
 %dir %{php_pear_dir}/Structures/DataGrid/Renderer
 %dir %{php_pear_dir}/Structures/DataGrid/DataSource
