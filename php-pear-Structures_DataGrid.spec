@@ -1,6 +1,5 @@
 %define		status		beta
 %define		pearname	Structures_DataGrid
-%include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - create grid like structure based on a record set of data
 Summary(pl.UTF-8):	%{pearname} - tworzenie struktur tabel opartych na zbiorze rekordów danych
 Name:		php-pear-%{pearname}
